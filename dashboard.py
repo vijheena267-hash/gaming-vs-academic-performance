@@ -305,7 +305,7 @@ def load_data() -> tuple[pd.DataFrame, bool]:
             st.sidebar.error(f"Missing columns: {', '.join(missing)}. Showing sample data instead.")
         else:
             return prep_data(df), True
-    if DATA_PATH:
+    # if DATA_PATH:
     #     try:
     #         df = pd.read_csv(DATA_PATH)
     #         return prep_data(df), True
