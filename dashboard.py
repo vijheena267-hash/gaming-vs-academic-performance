@@ -7,7 +7,7 @@ import plotly.graph_objects as go
 import plotly.express as px
 import streamlit as st
 
-DATA_PATH = "gaming_academic_data.csv"  # loaded automatically if this file sits next to app.py
+# DATA_PATH = "gaming_academic_data.csv"  # loaded automatically if this file sits next to app.py
 
 def _lbeta(a, b):
     return math.lgamma(a) + math.lgamma(b) - math.lgamma(a + b)
@@ -306,12 +306,12 @@ def load_data() -> tuple[pd.DataFrame, bool]:
         else:
             return prep_data(df), True
     if DATA_PATH:
-        try:
-            df = pd.read_csv(DATA_PATH)
-            return prep_data(df), True
-        except FileNotFoundError:
-            pass
-    return prep_data(generate_data()), False
+    #     try:
+    #         df = pd.read_csv(DATA_PATH)
+    #         return prep_data(df), True
+    #     except FileNotFoundError:
+    #         pass
+    # return prep_data(generate_data()), False
 
 
 # ---------------------------------------------------------------------------
