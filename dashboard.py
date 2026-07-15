@@ -7,7 +7,7 @@ import plotly.graph_objects as go
 import plotly.express as px
 import streamlit as st
 
-# DATA_PATH = "gaming_academic_data.csv"  # loaded automatically if this file sits next to app.py
+DATA_PATH = "Gaming_Academic_Performance Dataset.csv"  
 
 def _lbeta(a, b):
     return math.lgamma(a) + math.lgamma(b) - math.lgamma(a + b)
@@ -305,13 +305,13 @@ def load_data() -> tuple[pd.DataFrame, bool]:
             st.sidebar.error(f"Missing columns: {', '.join(missing)}. Showing sample data instead.")
         else:
             return prep_data(df), True
-    # if DATA_PATH:
-    #     try:
-    #         df = pd.read_csv(DATA_PATH)
-    #         return prep_data(df), True
-    #     except FileNotFoundError:
-    #         pass
-    # return prep_data(generate_data()), False
+    if DATA_PATH:
+        try:
+            df = pd.read_csv(DATA_PATH)
+            return prep_data(df), True
+        except FileNotFoundError:
+            pass
+    return prep_data(generate_data()), False
 
 
 # ---------------------------------------------------------------------------
